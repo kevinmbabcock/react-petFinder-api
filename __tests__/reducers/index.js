@@ -13,7 +13,16 @@ describe('Pet Finder App', () => {
     it('Should accept and return initial state.', () => {
       expect(petListReducer(initialState.petList, { type: null })).toEqual(initialState.petList);
     })
+
+    it('Should update state when API call is made', () => {
+      const action = actions.requestPet('')
+      expect(petListReducer(initialState.petList, actions.updatePetList))
+    })
   })
+
+
+
+
 
 
 
