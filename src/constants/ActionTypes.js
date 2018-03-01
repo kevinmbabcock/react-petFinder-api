@@ -1,1 +1,1 @@
-export const REQUEST_PET = 'REQUEST_PET';
+export const REQUEST_PET_LIST = 'REQUEST_PET_LIST';

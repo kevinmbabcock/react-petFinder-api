@@ -15,12 +15,12 @@ describe('Pet Finder App', () => {
     })
 
     it('Should update state when API call is made', () => {
-      const action = actions.requestPet('Golden Retriever');
+      const action = actions.requestPetList({});
       const newStateEntry = {
         isFetching: true,
-        breed: action.breed
+        petList: action.petList
       }
-      expect(petListReducer(initialState.petList, action)[action.petId]).toEqual(newStateEntry);
+      expect(petListReducer(initialState, action)).toEqual(newStateEntry);
     })
   })
 

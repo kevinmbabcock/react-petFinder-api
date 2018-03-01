@@ -2,21 +2,17 @@ import constants from './../constants';
 const { initialState, types } = constants;
 
 const petListReducer = (state = initialState.petList, action) => {
-  let newPetsByIdEntry;
-  let newPetsByIdStateSlice;
+  let newPetListEntry;
+  let newPetListStateSlice;
 
   switch (action.type) {
 
-    case types.REQUEST_PET:
-    newPetsByIdEntry = {
+    case types.REQUEST_PET_LIST:
+    newPetListEntry = {
       isFetching: true,
-      breed: action.breed,
-      petId: action.petId
+      petList: action.petList
     };
-    newPetsByIdStateSlice = Object.assign({}, state, {
-      [action.petId]: newPetsByIdEntry
-    });
-    return newPetsByIdStateSlice;
+    return newPetListEntry;
 
     default:
       return state;
