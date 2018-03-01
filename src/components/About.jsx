@@ -4,7 +4,7 @@ import React from 'react';
 function About(){
   return (
     <div>
-      <p>This page is about the website</p>
+      <p>About component</p>
     </div>
 
   );

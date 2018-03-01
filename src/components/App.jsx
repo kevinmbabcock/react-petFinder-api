@@ -5,7 +5,7 @@ import PetListContainer from './PetListContainer';
 import Error404 from './Error404';
 import NavBar from './NavBar';
 import SearchForm from './SearchForm';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 
 function App(){
   return (
@@ -22,4 +22,4 @@ function App(){
   );
 }
 
-export default App;
+export default withRouter(App);
