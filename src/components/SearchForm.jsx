@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 function SearchForm(){
   return (
     <div>
-      <p>This page is about the website</p>
+      <p>This page is the search form</p>
     </div>
 
   );

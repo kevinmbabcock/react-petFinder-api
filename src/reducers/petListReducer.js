@@ -14,6 +14,13 @@ const petListReducer = (state = initialState.petList, action) => {
     };
     return newPetListEntry;
 
+    case types.RECEIVE_PET_LIST:
+    newPetListEntry = {
+      isFetching: false,
+      petList: action.petList
+    };
+    return newPetListEntry;
+
     default:
       return state;
   }

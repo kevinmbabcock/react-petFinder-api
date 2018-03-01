@@ -1,1 +1,2 @@
 export const REQUEST_PET_LIST = 'REQUEST_PET_LIST';
+export const RECEIVE_PET_LIST = 'RECEIVE_PET_LIST';

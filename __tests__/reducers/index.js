@@ -14,24 +14,23 @@ describe('Pet Finder App', () => {
       expect(petListReducer(initialState.petList, { type: null })).toEqual(initialState.petList);
     })
 
-    it('Should update state when API call is made', () => {
+    it('Should update state when API request is made', () => {
       const action = actions.requestPetList({});
       const newStateEntry = {
         isFetching: true,
         petList: action.petList
       }
-      expect(petListReducer(initialState, action)).toEqual(newStateEntry);
+      expect(petListReducer(initialState.petList, action)).toEqual(newStateEntry);
     })
-  })
 
+    it('Should update state when API response is received', () => {
+      const action = actions.receivePetList({name: 'kevin'});
+      const newObject = {
+        isFetching: false,
+        petList: action.petList
+      };
+      expect(petListReducer(initialState.petList, action)).toEqual(newObject);
+    })
+  });
 
-
-
-
-
-
-
-
-
-
-})
+});
