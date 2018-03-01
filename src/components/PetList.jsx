@@ -2,19 +2,18 @@ import React from 'react';
 import Pet from './Pet';
 import PropTypes from 'prop-types';
 
-function PetList(){
+function PetList({petList}){
+  console.log(petList);
   return (
     <div>
-      {Object.keys(petList).map(petId =>
-        var pet = masterPetList[petId];
-        <Pet
+      <p>Here are all the pets that match your search:</p>
+      {Object.keys(petList.breed).map(petId => {
+        let pet = petList.breed[petId];
+        console.log(pet);
+        return  <Pet
           name={pet.name}
-          type={pet.type}
-          breed={pet.breed}
-          age={pet.age}
-          description={pet.description}
-          key={i}/>
-      )}
+          key={pet.id} />
+      })}
     </div>
   );
 }

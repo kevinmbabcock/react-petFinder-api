@@ -1,14 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import PetList from './PetList';
 
 
-function PetListContainer(){
+const PetListContainer = ({petList}) => {
   return (
     <div>
-      <p>This page is about the website</p>
+      <PetList petList={petList} />
     </div>
-
   );
 }
 
-export default connect()(PetListContainer);
+PetListContainer.propTypes = {
+  petList: PropTypes.object,
+  dispatch: PropTypes.func
+}
+
+const mapStateToProps = state => {
+  console.log(state.petList.pet)
+  return {
+    petList: state.petList
+  }
+}
+
+export default connect(mapStateToProps)(PetListContainer);

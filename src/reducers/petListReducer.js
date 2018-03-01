@@ -1,23 +1,28 @@
 import constants from './../constants';
 const { initialState, types } = constants;
 
+//reducer only deals with petList state slice
+
 const petListReducer = (state = initialState.petList, action) => {
   let newPetListEntry;
-  let newPetListStateSlice;
 
   switch (action.type) {
 
+    // request action only contains information made in request
+    // use information to create space in store
     case types.REQUEST_PET_LIST:
     newPetListEntry = {
       isFetching: true,
-      petList: action.petList
+      breed: action.breed
     };
     return newPetListEntry;
 
+    // receive action contains all information desired from API request
+    // use information to reset state slice value
     case types.RECEIVE_PET_LIST:
     newPetListEntry = {
       isFetching: false,
-      petList: action.petList
+      breed: action.breed
     };
     return newPetListEntry;
 

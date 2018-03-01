@@ -18,7 +18,7 @@ describe('Pet Finder App', () => {
       const action = actions.requestPetList({});
       const newStateEntry = {
         isFetching: true,
-        petList: action.petList
+        breed: action.breed
       }
       expect(petListReducer(initialState.petList, action)).toEqual(newStateEntry);
     })
@@ -27,7 +27,7 @@ describe('Pet Finder App', () => {
       const action = actions.receivePetList({name: 'kevin'});
       const newObject = {
         isFetching: false,
-        petList: action.petList
+        breed: action.breed
       };
       expect(petListReducer(initialState.petList, action)).toEqual(newObject);
     })

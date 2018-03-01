@@ -1,8 +1,9 @@
 import constants from './../constants';
 const { initialState, types } = constants;
 
-const changePetReducer = (state = initialState.currentPetId, action) =>  {
+// reducer only deals with currentPetId state slice
 
+const changePetReducer = (state = initialState.currentPetId, action) =>  {
 
   switch (action.type) {
 
