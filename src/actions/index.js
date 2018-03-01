@@ -11,13 +11,13 @@ export function fetchPetList (breed) {
 
   return function(dispatch) {
     dispatch(requestPetList({}));
-    breedLowercase = breed.toLowerCase().split(' ');
+    let breedLowercase = breed.toLowerCase().split(' ');
     let newBreed = '';
     breedLowercase.forEach(function(word) {
       let string = word.charAt(0).toUpperCase() + word.slice(1);
       newBreed = newBreed.concat(string + ' ');
     })
-    newBreedString = newBreed.trim().replace(' ', '+');
+    let newBreedString = newBreed.trim().replace(' ', '+');
     return(fetch('http://api.petfinder.com/pet.find?key=' + apiKey.apiKey + '&location=98103&format=json&breed=' + newBreedString)).then(
       response => response.json(),
       error => console.log('An error occured.', error)).then(function(json)
@@ -28,6 +28,7 @@ export function fetchPetList (breed) {
             let petId = v4();
             Object.assign(responseObject, {petId: {name: pet.name, id: petId}})
           });
+          console.log(responseObject);
           dispatch(receivePetList(responseObject));
         } else {
           console.log('We couldn\'t locate any pets by that breed');
